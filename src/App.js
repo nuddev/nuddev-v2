@@ -1,5 +1,5 @@
 import React from "react"
-
+import './App.less'
 function App() {
     return (<div>
         <h2>Welcome to React App</h2>
