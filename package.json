@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack serve --mode development",
+    "serve": "webpack  serve --env dev --mode development",
     "build": "webpack --mode production"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "typescript",
+    "webpack"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +23,9 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.0.5",
+    "@types/webpack": "4.1.4",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "dotenv-webpack": "^7.0.3",
@@ -28,6 +35,8 @@
     "less-loader": "^10.0.0",
     "react-hot-loader": "^4.13.0",
     "style-loader": "^3.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.4.3",
     "webpack": "^5.41.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"

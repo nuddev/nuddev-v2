@@ -1,8 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 module.exports = {
+  entry: {
+    app: path.join(__dirname, "src", "index.tsx"),
+  },
+  target: "web",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
+  },
   // Where files should be sent once they are bundled
   output: {
     path: path.join(__dirname, "/dist"),
@@ -18,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.tsx?$/,
         exclude: /nodeModules/,
         use: {
           loader: "babel-loader",
@@ -32,18 +39,16 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.less$/,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-          },
-          {
-            loader: "less-loader",
+            loader: "file-loader",
           },
         ],
+      },
+      {
+        test: /\.less$/,
+        use: ["style-loader", "css-loader", "less-loader"],
       },
     ],
   },
