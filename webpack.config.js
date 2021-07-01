@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
+const Dotenv = require('dotenv-webpack');
 module.exports = {
   // Where files should be sent once they are bundled
   output: {
@@ -47,6 +48,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
