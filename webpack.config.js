@@ -40,17 +40,32 @@ module.exports = ({ env }) => {
           use: ["style-loader", "css-loader"],
         },
         {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
-              loader: "file-loader",
-            },
-          ],
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
         },
         {
           test: /\.less$/,
-          use: ["style-loader", "css-loader", "less-loader"],
-        },
+          use: [
+            {
+              loader: "style-loader"
+            },
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true,
+                modules: true,
+                localIdentName: "[local]___[hash:base64:5]"
+              }
+            },
+            {
+              loader: "less-loader"
+            }
+          ]
+        }
       ],
     },
     plugins: [
